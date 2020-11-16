@@ -3,20 +3,22 @@ class CorgisController < ApplicationController
 def index
     #render :json => Corgi.all
     @corgis = current_user.corgis
-    render json: @corgis
+    render json: CorgiSerializer.new(corgi).to_serialized_json
 end 
 
 def update
     set_corgi
     @corgi.update(corgi_params)
+    render json: CorgiSerializer.new(corgi).to_serialized_json
 end 
 
 def create
     @corgi = Corgi.new(corgi_params)
+    corgi.user = current_user
     if @corgi.save 
-        render 
+        render json: CorgiSerializer.new(corgi).to_serialized_json
     else
-        render 
+        render json: {errors: "oops something went wrong :3"}
     end 
 
 end 
