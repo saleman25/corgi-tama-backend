@@ -1,8 +1,9 @@
 class CorgisController < ApplicationController
 
 def index
+    #render :json => Corgi.all
     @corgis = current_user.corgis
-    render json:
+    render json: @corgis
 end 
 
 def update
