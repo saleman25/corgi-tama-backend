@@ -1,19 +1,19 @@
 class UsersController < ApplicationController
+skip_before_action :authorized, only: [:create]
 
-    def create 
-        @user = User.create(user_params)
-       if @user.save 
-        #some type of encription 
-        render json: {}
+def create 
+    @user = User.create(user_params)
+    if @user.valid?  
+        render json: { userdata: UserSerializer.new(user)}, status: :created
     else
-        render json: { errors: "sowwy :3 pwoblem "}
+        render json: { errors: "sowwy :3 pwoblem "}, status: :not_acceptable
     end 
 end
 
-    private 
+private 
 
-    def user_params 
-        params.require(:user).permit(:username, :password)
-    end 
+def user_params 
+    params.require(:user).permit(:username, :password)
+end 
 
 end 
