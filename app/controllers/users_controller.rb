@@ -2,9 +2,13 @@ class UsersController < ApplicationController
 
     def create 
         @user = User.create(user_params)
-        @user.save 
-        session[:user_id] = @user.id 
+       if @user.save 
+        #some type of encription 
+        render json: {}
+    else
+        render json: { errors: "sowwy :3 pwoblem "}
     end 
+end
 
     private 
 

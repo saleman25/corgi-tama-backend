@@ -2,8 +2,8 @@ class CorgisController < ApplicationController
 
 def index
     #render :json => Corgi.all
-    @corgis = current_user.corgis
-    render json: CorgiSerializer.new(corgi).to_serialized_json
+    @corgis = Corgi.all
+    render json: CorgiSerializer.new(@corgi).to_serialized_json
 end 
 
 def update
