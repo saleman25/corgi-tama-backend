@@ -18,7 +18,7 @@ def create
     if @corgi.save 
         render json: CorgiSerializer.new(corgi).to_serialized_json
     else
-        render json: {errors: "oops something went wrong :3"}
+        render json: {errors: "oops something went wrong :3"}, status: :not_acceptable
     end 
 
 end 
