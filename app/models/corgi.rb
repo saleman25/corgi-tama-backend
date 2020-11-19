@@ -6,4 +6,8 @@ class Corgi < ApplicationRecord
     validates :happiness_meter, inclusion: { in: (0..100).to_a }
     validates :evolution_countdown, numericality: :true
     
+def user 
+    {name: self.name, user: self.user}
+end 
+
 end
