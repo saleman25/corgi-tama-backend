@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 2020_11_13_223120) do
     t.integer "hunger_meter", default: 75
     t.integer "lonlieness_meter", default: 75
     t.integer "happiness_meter", default: 50
-    t.integer "evolution_countdown", default: 60
-    t.string "corgi_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_corgis_on_user_id"
