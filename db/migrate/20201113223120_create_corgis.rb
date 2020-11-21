@@ -4,7 +4,7 @@ class CreateCorgis < ActiveRecord::Migration[6.0]
       t.string :name
       t.belongs_to :user
       t.integer :hunger_meter, default: 75
-      t.integer :lonlieness_meter, default: 75
+      t.integer :lonliness_meter, default: 75
       t.integer :happiness_meter, default: 50
 
       t.timestamps

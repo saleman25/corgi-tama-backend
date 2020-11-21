@@ -4,16 +4,15 @@ class CorgisController < ApplicationController
 def update
     set_corgi
     @corgi.update(corgi_params)
-    render @corgi
+    render json: @corgi
 end 
 
 def create
     @corgi = Corgi.new(corgi_params)
-    corgi.user = current_user
     if @corgi.save 
-        render @corgi
+        render json: @corgi
     else
-        render json: {errors: "oops something went wrong :3"}, status: :not_acceptable
+        render json: { errors: "oops something went wrong :3"}
     end 
 
 end 
@@ -30,7 +29,7 @@ def set_corgi
 end 
 
 def corgi_params 
-    params.require(:corgi).permit(:id, :name, :user_id, :happiness_meter, :hunger_meter, :lonlieness_meter, :evolution_countdown, :corgi_type)
+    params.require(:corgi).permit(:id, :name, :user_id, :happiness_meter, :hunger_meter, :lonliness_meter)
 end 
 
 

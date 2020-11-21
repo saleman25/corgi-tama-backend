@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 root 'corgis#index'
 resources :users
 resources :corgis
-post '/login', to: 'auth#create'
+
 
 end

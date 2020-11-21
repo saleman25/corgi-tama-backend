@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_11_13_223120) do
     t.string "name"
     t.integer "user_id"
     t.integer "hunger_meter", default: 75
-    t.integer "lonlieness_meter", default: 75
+    t.integer "lonliness_meter", default: 75
     t.integer "happiness_meter", default: 50
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
