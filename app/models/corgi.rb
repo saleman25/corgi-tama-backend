@@ -4,7 +4,6 @@ class Corgi < ApplicationRecord
     validates :lonliness_meter, inclusion: { in: (0..100).to_a }
     validates :hunger_meter, inclusion: { in: (0..100).to_a }
     validates :happiness_meter, inclusion: { in: (0..100).to_a }
-    
 
 
 end
